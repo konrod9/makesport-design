@@ -9,6 +9,7 @@ const columns = [
       { label: "Все площадки", href: "/" },
       { label: "Карта", href: "/map" },
       { label: "Добавить площадку", href: "/add" },
+      { label: "Мой профиль", href: "/profile" },
     ],
   },
   {

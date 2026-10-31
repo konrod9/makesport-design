@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, Plus, X } from "lucide-react";
+import { Menu, Plus, UserRound, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/ui/logo";
 
@@ -65,9 +65,19 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <button className="rounded-full px-4 py-2.5 text-sm font-semibold text-ink-500 transition-colors hover:text-ink">
+          <Link
+            href="/auth/login"
+            className="rounded-full px-4 py-2.5 text-sm font-semibold text-ink-500 transition-colors hover:text-ink"
+          >
             Войти
-          </button>
+          </Link>
+          <Link
+            href="/profile"
+            aria-label="Мой профиль"
+            className="grid size-10 place-items-center rounded-full border border-ink-200 bg-white/60 text-ink-500 transition-colors hover:border-ink-300 hover:text-ink"
+          >
+            <UserRound className="size-4" />
+          </Link>
           <Link
             href="/add"
             className="group inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-cream transition-all hover:bg-ink-700 hover:shadow-soft"
@@ -99,10 +109,20 @@ export function Header() {
               </Link>
             ))}
           </nav>
+          <Link
+            href="/profile"
+            className="mt-1 flex items-center gap-2 rounded-2xl px-4 py-3 text-base font-semibold text-ink-600 hover:bg-ink-100"
+          >
+            <UserRound className="size-4" />
+            Мой профиль
+          </Link>
           <div className="mt-3 flex gap-2 border-t border-ink-200 pt-3">
-            <button className="flex-1 rounded-2xl border border-ink-200 py-3 text-sm font-semibold">
+            <Link
+              href="/auth/login"
+              className="flex-1 rounded-2xl border border-ink-200 py-3 text-center text-sm font-semibold"
+            >
               Войти
-            </button>
+            </Link>
             <Link
               href="/add"
               className="flex-1 rounded-2xl bg-ink py-3 text-center text-sm font-semibold text-cream"
